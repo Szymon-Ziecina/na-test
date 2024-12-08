@@ -18,5 +18,73 @@
       ""
     ],
     "description": "handleBars"
+  },
+  "files": {
+    "prefix": "files",
+    "body": [
+      "const express = require('express');",
+      "const formidable = require('formidable');",
+      "const app = express();",
+      "const PORT = 3000;",
+      "",
+      "app.use(express.static(__dirname + '/static/'));",
+      "app.use(express.json());",
+      "",
+      "app.listen(PORT, () => {",
+      "  console.log('App listening on port 3000!');",
+      "});"
+    ],
+    "description": "files"
+  },
+  "addFiels": {
+    "prefix": "addFiles",
+    "body": [
+      "app.post('/uploadFile', (req, res) => {",
+      "let form = formidable({});",
+      "",
+      "  form.multiples = true; // jeśli chesz więcej niż jeden plik",
+      "  form.uploadDir = __dirname + '/static/upload/';",
+      "  form.keepExtensions = true;",
+      "",
+      "  form.parse(req, (err, fields, files) => {",
+      "    console.log(files);",
+      "",
+      "    res.send(files);",
+      "  });",
+      "})"
+    ],
+    "description": "addFiles"
+  },
+  "fetchClient": {
+    "prefix": "fetchClient",
+    "body": [
+      "const guzior = document.getElementById('btn');",
+      "      const liczba1 = document.getElementById('inp1');",
+      "      const liczba2 = document.getElementById('inp2');",
+      "      const działanie = document.getElementById('sel');",
+      "",
+      "      guzior.onclick = (e) => {",
+      "        e.preventDefault();",
+      "        const data = JSON.stringify({",
+      "          liczba1: liczba1.value,",
+      "          liczba2: liczba2.value,",
+      "          działanie: działanie.value,",
+      "        });",
+      "        const options = {",
+      "          method: 'POST',",
+      "          headers: {",
+      "            'Content-Type': 'application/json',",
+      "          },",
+      "          body: data,",
+      "        };",
+      "        fetch('/', options)",
+      "          .then((response) => response.json())",
+      "          .then((dataFromServer) =>",
+      "            alert(JSON.stringify(dataFromServer, null, 5))",
+      "          )",
+      "          .catch((error) => console.log(error));",
+      "      };"
+    ],
+    "description": "fetchClient"
   }
 }
