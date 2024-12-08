@@ -13,10 +13,10 @@
   "author": {
     "name": "Samuel Breznjak",
     "email": "samuelbreznjak35@gmail.com",
-    "url": "https://github.com/ekmas"
+    "url": "https://github.com/Szymon-Ziecina"
   },
   "repository": {
-    "url": "https://github.com/ekmas/vscode-snippets-extension-example",
+    "url": "https://github.com/Szymon-Ziecina/na-test",
     "type": "git"
   },
   "contributes": {
